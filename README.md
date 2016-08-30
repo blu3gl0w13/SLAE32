@@ -10,7 +10,11 @@ Student ID: SLAE-744
 
 Assignment 1 details:
 
+Write a TCP bind shell (configurable PORT)
+
 Assignment 2 details:
+
+Write a Reverse TCP shell (configurable IP and PORT)
 
 Assignment 3 details
 
