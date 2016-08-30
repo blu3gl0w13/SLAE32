@@ -26,4 +26,6 @@ output = socket.inet_aton(ip).encode('hex')
 print "\n[+] Hex version of IP is: 0x%s" % output
 print "[+] Little Endian version of IP is: 0x%s\n" % hex(struct.unpack('<L', struct.pack('>L', int(output,16))) [0])[2:]
 print "[+] Hex version of PORT is: 0x%02x" % port
-print "[+] Little Endian version of PORT is: 0x%s\n\n" % hex(struct.unpack('<H', struct.pack('>H', port)) [0])[2:]
+print "[+] Little Endian version of PORT is: 0x%s\n" % hex(struct.unpack('<H', struct.pack('>H', port)) [0])[2:]
+print "[+] PORT IP Shellcode is: \\x%s\\x%s\\x%s\\x%s\\x%s\\x%s" % (hex(port)[2:4], hex(port)[4:6], output[0:2], output[2:4], output[4:6], output[6:8]) 
+print "[+] IP PORT shellcode is: \\x%s\\x%s\\x%s\\x%s\\x%s\\x%s\n\n" % (output[0:2], output[2:4], output[4:6], output[6:8], hex(port)[2:4], hex(port)[4:6])
