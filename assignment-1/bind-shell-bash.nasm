@@ -189,12 +189,7 @@ shell_time:
 
 	; now it's time to launch our shell
 	; program using execve. I prefer
-	; /bin/bash but it doesn't play
-	; well in terms of length so 
-	; we'll use /bin//sh for length
-	; sake
-	;
-	; /bin//sh (0x68732f2f) (0x6e69622f)
+	; /bin/bash we'll use /bin////bash
 	; execve is 0xb (11)
 	; int execve(const char *filename, char *const argv[],
         ;          char *const envp[])
