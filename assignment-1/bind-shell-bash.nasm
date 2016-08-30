@@ -1,6 +1,6 @@
 ;--------------------------------------------------------------
 ;
-; bind-shell.nasm
+; bind-shell-bash.nasm
 ; by Michael Born (@blu3gl0w13)
 ; Student ID: SLAE-744
 ; August 29, 2016
