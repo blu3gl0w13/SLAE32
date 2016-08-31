@@ -1,0 +1,9 @@
+Research:
+
+http://www.hick.org/code/skape/papers/egghunt-shellcode.pdf
+
+https://www.exploit-db.com/docs/18482.pdf
+
+http://www.fuzzysecurity.com/tutorials/expDev/4.html
+
+
