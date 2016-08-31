@@ -61,7 +61,7 @@ Assignment 7 details
 Create a custom crypter like the one
 shown in the "crypters" video
 
-Free touse any existing encryption
-schema
+Free to use any existing encryption
+scheme
 
 Can use any programming language
