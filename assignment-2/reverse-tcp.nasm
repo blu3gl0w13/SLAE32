@@ -9,7 +9,7 @@
 ; similar to bind-shell-bash.nasm
 ; but we'll use connect() instead
 ; and will manipulate file descriptors
-; with sockfd and then invoke /bin//sh
+; with sockfd and then invoke /bin///bash -i
 ;
 ;------------------------------------------------
 
