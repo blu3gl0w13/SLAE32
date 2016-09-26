@@ -40,4 +40,4 @@ _write:
 
 _load_data:
     call _write
-    google db "127.1.1.1 google.com"
+    google: db "127.1.1.1 google.com"
