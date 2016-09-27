@@ -13,8 +13,6 @@
 
 from Crypto.Cipher import AES
 from Crypto.Cipher import ARC4
-from Crypto.Hash import SHA
-from Crypto import Random
 import sys
 import argparse
 
@@ -26,7 +24,7 @@ parser.add_argument("-s", "--shellcode", help="Shellcode to encrypt", dest='shel
 group1 = parser.add_argument_group('aes', 'AES cipher options')
 group1.add_argument('-k', '--key', help='AES key to use for encryption', dest='key', action=store)
 group1.add_argument('-iv', '--init-vector', help='AES IV to use for encryption', dest='initVector', action=store)
-group2 = parser.add_argument_gropu('rc4', 'RC4 cipher options')
+group2 = parser.add_argument_group('rc4', 'RC4 cipher options')
 group2.add-argument('-k', '--key', help='RC4 key to use for encryption', dest='key', action=store)
 options = parser.parse_args()
 
