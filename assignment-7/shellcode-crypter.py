@@ -76,7 +76,7 @@ def main():
 
   if options.cipher == 'aes' or options.cipher == 'AES':
     # pad shellcode with nops until it is in chunks of 16
-    while (len(bytearray(shellcode)) % 16 !=0):
+    while (len(shellcode) % 16 !=0):
       shellcode += '\\x90'
 
     if initVector == 'None':
