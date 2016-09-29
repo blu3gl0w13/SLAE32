@@ -38,6 +38,12 @@ def aesCrypter(key, shellcode):
   print "\nHashedkey: %s Len: %d" % (hashedKey.encode('hex'), len(hashedKey))
   print "\nSalt: %s Len: %d" % (salt.encode('hex'), len(salt))
   print "\nIV: %s Len: %d\n\n" % (initVector.encode('hex'), len(initVector))
+  encShellcode = ''
+
+  for i in bytearray(cipherText):
+    encShellcode += '\\x%02x' % i
+
+  print '\n[+] Encrypted Shellcode: "%s"\n\n' % encShellcode
   sys.exit(0)
 
 def main():
