@@ -1,14 +1,9 @@
-;
-;
-;
-;
-;
-;
-;
-;
-;
-
-
+;-------------------------------
+; decoder-execve.nasm
+; by Michael Born (@blu3gl0w13)
+; September 5, 2016
+; Student ID: SLAE-744
+;-------------------------------
 
 global _start
 
