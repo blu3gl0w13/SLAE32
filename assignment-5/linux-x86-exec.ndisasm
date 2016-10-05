@@ -8,12 +8,14 @@
 00000010  682F62696E        push dword 0x6e69622f
 00000015  89E3              mov ebx,esp
 00000017  52                push edx
-00000018  E809000000        call dword 0x26
-0000001D  2F                das
-0000001E  2F                das
-0000001F  62696E            bound ebp,[ecx+0x6e]
-00000022  2F                das
-00000023  7368              jnc 0x8d
-00000025  005753            add [edi+0x53],dl
-00000028  89E1              mov ecx,esp
-0000002A  CD80              int 0x80
+00000018  E810000000        call dword 0x2d
+0000001D  636174            arpl [ecx+0x74],sp
+00000020  202F              and [edi],ch
+00000022  657463            gs jz 0x88
+00000025  2F                das
+00000026  7061              jo 0x89
+00000028  7373              jnc 0x9d
+0000002A  7764              ja 0x90
+0000002C  005753            add [edi+0x53],dl
+0000002F  89E1              mov ecx,esp
+00000031  CD80              int 0x80
