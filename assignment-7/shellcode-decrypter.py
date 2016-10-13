@@ -50,20 +50,22 @@ def main():
   encryptedPayload = (options.shellcode).replace("\\x", "").decode('hex')
   IV = encryptedPayload[:16]
   salt = encryptedPayload[16:32]
-  key = 'slae32'
+  key = options.key
   shellcode = encryptedPayload[32::]
 
   decrypted = aesDecrypter(key, IV, shellcode, salt)
 
-
   # now we need to run our shellcode from here
 
+  # The following code is based on the following blog:
+
+  # http://hacktracking.blogspot.com/2015/05/execute-shellcode-in-python.html
   # use ctypes.CDLL to load /lib/i386-linux-gnu/libc.so.6
 
   libC = CDLL('libc.so.6')
 
   #print decrypted
-  shellcode = str(decrypted)
+  shellcode = decrypted
   shellcode = shellcode.replace('\\x', '').decode('hex')
   code = c_char_p(shellcode)
   sizeOfDecryptedShellcode = len(shellcode)
