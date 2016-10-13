@@ -21,7 +21,7 @@ from ctypes import *
 
 #---------------------------------------
 #
-# Define our Encryption Functions
+# Define our Decryption Functions
 #
 #--------------------------------------
 
